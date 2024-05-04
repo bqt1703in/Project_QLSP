@@ -1,0 +1,24 @@
+.header {
+  padding: 20px 0;
+  a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 30px;
+  }
+}
+.product-item {
+  .product-img {
+    img {
+      width: 350px;
+      height: 230px;
+    }
+  }
+  .product-content {
+    .title {
+      color: green;
+    }
+    .price {
+      color: red;
+    }
+  }
+}

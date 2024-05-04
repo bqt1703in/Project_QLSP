@@ -1,4 +1,16 @@
 extends ../../layouts/default.pug 
 
 block main 
-    h1 Danh sach san pham
+    main 
+        .container 
+            h1 Danh sách sản phẩm 
+            .row 
+                each product in products
+                    .col-4.mb-3 
+                        .product-item 
+                            .product-img 
+                                img(src=product.thumbnail, alt="")
+                            .product-content 
+                                h3.title #{product.title}
+                                .price #{product.price}
+                            

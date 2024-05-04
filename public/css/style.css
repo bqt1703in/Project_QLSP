@@ -1,0 +1,19 @@
+.header {
+  padding: 20px 0;
+}
+.header a {
+  padding: 10px;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+.product-item .product-img img {
+  width: 350px;
+  height: 230px;
+}
+.product-item .product-content .title {
+  color: green;
+}
+.product-item .product-content .price {
+  color: red;
+}/*# sourceMappingURL=style.css.map */
