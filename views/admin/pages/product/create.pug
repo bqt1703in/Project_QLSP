@@ -1,0 +1,36 @@
+extends ../../layouts/default.pug 
+include ../../mixins/pagination.pug
+
+
+block main 
+    section.products-list
+        h1.title THÊM MỚI SẢN PHẨM
+        form(action=`${PATH_ADMIN}/products/create` id="form-create-product" method="POST") 
+            .input-group 
+                label(for="title") Tên sản phẩm
+                input(type="text" name="title" required) 
+            .input-group 
+                label(for="description") Mô tả
+                textarea(type="text" name="description" rows="5" required)  
+            .input-group 
+                label(for="price") Giá
+                input(type="number" name="price" value="0" min="0") 
+            .input-group 
+                label(for="discountPercentage") % giảm giá
+                input(type="number" name="discountPercentage" value="0" min="0") 
+            .input-group 
+                label(for="stock") Số lượng
+                input(type="number" name="stock" value="0" min="0")
+            .input-group 
+                label(for="thumbnail") Ảnh 
+                input(type="number" name="thumbnail")
+            .input-group 
+                label(for="position") Vị trí
+                input(type="number" name="position")
+            .input-group.status
+                p Trạng thái
+                input(type="radio" id="active" name="status" value="active") 
+                label(for="active") Hoạt động
+                input(type="radio" id="inactive" name="status" value="inactive") 
+                label(for="inactive") Không hoạt động
+            button(type="submit" class="button-create") Tạo mới

@@ -1,0 +1,268 @@
+.header {
+  padding: 15px;
+  background-color: #fcfafa;
+  border-bottom: 1px solid #ddd;
+}
+.header .logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+.header .logo .username {
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+  color: rgba(87, 83, 83, 0.8862745098);
+  margin-right: 5px;
+}
+.header .logo img {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+}
+
+section.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+section.body .slider {
+  background-color: #4e73df;
+  width: 15%;
+  height: 100vh;
+}
+section.body .slider ul li {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+section.body .slider ul li a {
+  text-decoration: none;
+  display: block;
+  color: #ddd;
+  font-size: 20px;
+  list-style-type: none;
+}
+section.body .main {
+  width: 85%;
+  height: 100vh;
+  padding: 20px;
+}
+section.body .main .products-list h1.title {
+  text-align: center;
+  font-size: 30px;
+  color: #2ecc71;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+section.body .main .products-list .filter-search {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+section.body .main .products-list .filter-search .title {
+  background-color: #bdc3c7;
+  font-weight: bold;
+  padding: 10px;
+}
+section.body .main .products-list .filter-search .body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.body .main .products-list .filter-search .body .filter {
+  padding: 10px;
+}
+section.body .main .products-list .filter-search .body .filter button {
+  padding: 7px;
+  border: 1px solid #2ecc71;
+  background-color: white;
+  color: #2ecc71;
+  margin-right: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+section.body .main .products-list .filter-search .body .filter .check,
+section.body .main .products-list .filter-search .body .filter button:hover {
+  background-color: #2ecc71;
+  color: white;
+}
+section.body .main .products-list .filter-search .body .search .input-group {
+  margin-right: 10px;
+}
+section.body .main .products-list .filter-search .body .search .input-group input,
+section.body .main .products-list .filter-search .body .search .input-group button {
+  padding: 7px 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+section.body .main .products-list .filter-search .body .search .input-group input {
+  width: 500px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+section.body .main .products-list .filter-search .body .search .input-group button {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+section.body .main .products-list .change-multi {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-bottom: 10px;
+}
+section.body .main .products-list .change-multi select,
+section.body .main .products-list .change-multi button {
+  padding: 7px 12px;
+}
+section.body .main .products-list .change-multi input {
+  padding: 7px 12px;
+  border: 1px solid #ddd;
+  width: 250px;
+  display: none;
+}
+section.body .main .products-list .change-multi button {
+  background-color: #2ecc71;
+  color: white;
+}
+section.body .main .products-list table,
+section.body .main .products-list tr,
+section.body .main .products-list td {
+  border: 2px solid #bdc3c7;
+}
+section.body .main .products-list table {
+  text-align: center;
+  border-collapse: collapse;
+  width: 100%;
+}
+section.body .main .products-list table .img {
+  width: 200px;
+}
+section.body .main .products-list table .img img {
+  width: 200px;
+  height: 133px;
+  display: block;
+}
+section.body .main .products-list table thead td {
+  font-weight: bold;
+  padding: 10px 0;
+  background-color: #ecf0f1;
+}
+section.body .main .products-list table thead .stt {
+  width: 50px;
+}
+section.body .main .products-list table thead .status,
+section.body .main .products-list table thead .action {
+  width: 200px;
+}
+section.body .main .products-list table thead .price {
+  width: 150px;
+}
+section.body .main .products-list table tbody tr {
+  transition: 0.6s;
+}
+section.body .main .products-list table tbody tr:hover {
+  cursor: pointer;
+  background-color: #ecf0f1;
+}
+section.body .main .products-list table tbody td.name {
+  text-align: left;
+  padding: 0 20px;
+}
+section.body .main .products-list table tbody td.status {
+  padding: 0 20px;
+}
+section.body .main .products-list table tbody td.status button {
+  text-align: center;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+section.body .main .products-list table tbody td.status .active {
+  background-color: #2ed573;
+}
+section.body .main .products-list table tbody td.status .inactive {
+  background-color: #eb2f06;
+}
+section.body .main .products-list table tbody td.action button {
+  padding: 8px 20px;
+  outline: none;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+section.body .main .products-list table tbody td.action .edit {
+  background-color: #f9ca24;
+  margin-right: 5px;
+}
+section.body .main .products-list table tbody td.action .remove {
+  background-color: #eb2f06;
+  margin-left: 5px;
+}
+
+.table {
+  position: relative;
+}
+.table .not-found {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 60px;
+}
+
+.pagination {
+  padding-top: 10px;
+}
+.pagination ul {
+  list-style-type: none;
+  display: flex;
+}
+.pagination ul li.active button {
+  background-color: #4e73df;
+  border: 1px solid 40000000000000000000000000000000000000000000000000000000000000000000000000df;
+  color: #bdc3c7;
+}
+.pagination ul li button {
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  background-color: #bdc3c7;
+  cursor: pointer;
+}
+.pagination ul li button:hover {
+  background-color: #4e73df;
+  border: 1px solid 40000000000000000000000000000000000000000000000000000000000000000000000000df;
+  color: #bdc3c7;
+}
+
+#form-create-product {
+  width: 500px;
+  margin: 0 auto;
+}
+#form-create-product .input-group {
+  display: flex;
+  flex-direction: column;
+}
+#form-create-product .input-group label {
+  padding: 10px 0;
+}
+#form-create-product .input-group input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+#form-create-product button {
+  padding: 8px 12px;
+  border-radius: 5px;
+  background-color: #4e73df;
+  color: white;
+}
+#form-create-product .status {
+  display: flex;
+  flex-direction: row;
+}
+#form-create-product .status p {
+  display: block;
+}/*# sourceMappingURL=styleadmin.css.map */

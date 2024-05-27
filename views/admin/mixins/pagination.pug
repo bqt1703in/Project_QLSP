@@ -1,0 +1,15 @@
+mixin pagination(pagination) 
+    ul 
+        li 
+            button(button-pagination = 1) Trang đầu 
+        if (pagination.currentPage > 1)
+            li 
+                button(button-pagination = pagination.currentPage - 1) <<
+        - for (var i = 1; i <= pagination.totalPage; i++)
+            li(class = `${i == pagination.currentPage ? "active" : ""}`)
+                button(button-pagination = i) #{i}
+        if (pagination.currentPage < pagination.totalPage)
+            li 
+                button(button-pagination = pagination.currentPage + 1) >>
+        li 
+            button(button-pagination = pagination.totalPage) Trang cuối

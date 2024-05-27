@@ -1,0 +1,72 @@
+extends ../../layouts/default.pug 
+include ../../mixins/filterStatus.pug
+include ../../mixins/search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/notification-success.pug
+
+block main 
+    section.products-list
+        - if (messages.mess)
+            div(class="notification-success" data-show data-time="2000") #{messages.mess}
+                span(class="close-alert") x 
+        h1.title DANH SÁCH SẢN PHẨM
+        .filter-search 
+            .title Bộ lọc và tìm kiếm 
+            .body 
+                .filter 
+                    +filter-Status(filterStatus)
+                .search
+                    +search(keyword)
+        +form-change-multi(`${PATH_ADMIN}/products/change-multi?_method=PATCH`) 
+        .create 
+            a(href=`${PATH_ADMIN}/products/create`) + Thêm mới 
+        .recycle-bin
+            a(href=`${PATH_ADMIN}/products/recycle-bin`) Thùng rác (#{countTrash})
+        .table 
+            table(checkbox-multi)
+                thead 
+                    tr 
+                        td.checkall 
+                            input(type="checkbox" name="checkall")
+                        td.stt STT
+                        td.img Hình ảnh
+                        td.name Tên sản phẩm
+                        td.position Vị trí
+                        td.price Giá
+                        td.status Trạng thái
+                        td.action Hành động
+                tbody 
+                    if (products.length > 0)
+                        each product, index in products 
+                            tr 
+                                td
+                                    input(type="checkbox" name="id" value=product.id)
+                                td.stt #{index + 1}
+                                td.img 
+                                    img(src=product.thumbnail, alt=product.title)
+                                td.name #{product.title}
+                                td.position 
+                                    input(type="number" name="position" min=1 value=product.position)
+                                td.price $#{product.price}
+                                td.status
+                                    if (product.status == "active") 
+                                        button(class="active" data-status=product.status data-id=product.id button-change-status)  Hoạt động
+                                    else if (product.status == "inactive")
+                                        button(class="inactive" data-status=product.status data-id=product.id button-change-status)  Không hoạt động
+                        
+                                    //- if (product.status == "active") 
+                                    //-     a(class="active" href="javascript:;" data-status=product.status data-id=product.id button-change-status)  Hoạt động
+                                    //- else if (product.status == "inactive")
+                                    //-     a(class="inactive" href="javascript:;" data-status=product.status data-id=product.id button-change-status)  Hoạt động
+                                td.action 
+                                    button.edit Sửa
+                                    button(class = "remove" data-id=product.id button-remove) Xóa
+                    else 
+                        .not-found Không tìm thấy sản phẩm !!!
+        .pagination
+            +pagination(pagination)
+
+    form(action="" method="POST" id="form-change-status" data-path=`${PATH_ADMIN}/products/change-status`)
+    form(action="" method="POST" id="form-delete-item" data-path=`${PATH_ADMIN}/products/delete`)
+    script(src="/admin/js/product.js") 
