@@ -5,16 +5,21 @@ include ../../mixins/pagination.pug
 block main 
     section.products-list
         h1.title THÊM MỚI SẢN PHẨM
-        form(action=`${PATH_ADMIN}/products/create` id="form-create-product" method="POST") 
+        form(
+            action=`${PATH_ADMIN}/products/create` 
+            id="form-create-product" 
+            method="POST" 
+            enctype="multipart/form-data"
+        ) 
             .input-group 
                 label(for="title") Tên sản phẩm
-                input(type="text" name="title" required) 
+                input(type="text" id="title" name="title" required) 
             .input-group 
                 label(for="description") Mô tả
-                textarea(type="text" name="description" rows="5" required)  
+                textarea(type="text" id="description" name="description" rows="5" required)  
             .input-group 
                 label(for="price") Giá
-                input(type="number" name="price" value="0" min="0") 
+                input(type="number" id="price" name="price" value="0" min="0") 
             .input-group 
                 label(for="discountPercentage") % giảm giá
                 input(type="number" name="discountPercentage" value="0" min="0") 
@@ -23,10 +28,10 @@ block main
                 input(type="number" name="stock" value="0" min="0")
             .input-group 
                 label(for="thumbnail") Ảnh 
-                input(type="number" name="thumbnail")
+                input(type="file" id="thumbnial" name="thumbnail" accept="image/*")
             .input-group 
                 label(for="position") Vị trí
-                input(type="number" name="position")
+                input(type="number" name="position" placeholder="Tự động tăng")
             .input-group.status
                 p Trạng thái
                 input(type="radio" id="active" name="status" value="active") 

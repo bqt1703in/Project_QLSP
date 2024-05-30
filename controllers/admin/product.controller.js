@@ -2,6 +2,7 @@ const Product = require("../../models/product.model");
 const filterStatusHelper = require("../../helpers/filterStatus");
 const searchHelper = require("../../helpers/search");
 const paginationHelper = require("../../helpers/pagination");
+
 const PATH_ADMIN = require("../../config/system");
 // [GET] /admin/products
 module.exports.index = async (req, res) => {
@@ -140,9 +141,17 @@ module.exports.create = async (req, res) => {
 
 // [GET] /admin/products/create
 module.exports.createPOST = async (req, res) => {
-  console.log(req.body);
-  // res.redirect("/admin/products");
+  if (!req.body.position) {
+    const countProducts = await Product.count();
+    req.body.position = countProducts + 1;
+  } else {
+    req.body.position = parseInt(req.body.position);
+  }
+  req.body.price = parseInt(req.body.price);
+  req.body.stock = parseInt(req.body.stock);
+  req.body.discountPercentage = parseInt(req.body.discountPercentage);
+  req.body.thumbnail = `/uploads/${req.file.filename}`;
+  const product = new Product(req.body);
+  await product.save();
   res.redirect(`${PATH_ADMIN.PATH_ADMIN}/products`);
-  // console.log(PATH_ADMIN.PATH_ADMIN);
-  // res.send("ok");
 };
