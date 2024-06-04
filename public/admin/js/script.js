@@ -116,3 +116,33 @@ if (formChangeMulti) {
     }
   });
 }
+
+// Xử lí xem trước ảnh
+const uploadImage = document.querySelector("[upload-image]");
+
+if (uploadImage) {
+  const uploadImageInput = document.querySelector("[upload-image-input]");
+  const uploadImagePreview = document.querySelector("[upload-image-preview]");
+  const buttonDeleteUploadImage = document.querySelector(
+    "[button-delete-upload-image]"
+  );
+
+  uploadImageInput.addEventListener("change", (e) => {
+    console.log(e);
+    const file = e.target.files[0];
+    if (file) {
+      buttonDeleteUploadImage.classList.add("d-block");
+      uploadImagePreview.src = URL.createObjectURL(file);
+    }
+  });
+
+  if (buttonDeleteUploadImage) {
+    buttonDeleteUploadImage.addEventListener("click", () => {
+      uploadImageInput.value = "";
+      uploadImagePreview.src = "";
+      buttonDeleteUploadImage.classList.remove("d-block");
+    });
+  }
+}
+
+// Xử lí xóa hình ảnh upload

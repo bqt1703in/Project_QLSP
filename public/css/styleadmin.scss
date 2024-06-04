@@ -293,3 +293,24 @@ section.body {
     }
   }
 }
+.btn-delele-upload-img {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 49px;
+  right: 12px;
+  background-color: red;
+  color: white;
+}
+
+.d-block {
+  display: block;
+}
+.p-relative {
+  position: relative;
+  .preview-img {
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+}

@@ -150,7 +150,9 @@ module.exports.createPOST = async (req, res) => {
   req.body.price = parseInt(req.body.price);
   req.body.stock = parseInt(req.body.stock);
   req.body.discountPercentage = parseInt(req.body.discountPercentage);
-  req.body.thumbnail = `/uploads/${req.file.filename}`;
+  if (req.file) {
+    req.body.thumbnail = `/uploads/${req.file.filename}`;
+  }
   const product = new Product(req.body);
   await product.save();
   res.redirect(`${PATH_ADMIN.PATH_ADMIN}/products`);

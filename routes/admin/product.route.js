@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const controller = require("../../controllers/admin/product.controller");
+const validate = require("../../validates/admin/product.validate");
 
 const multer = require("multer");
 const storageMulter = require("../../helpers/storageMulter");
@@ -14,6 +15,11 @@ router.get("/recycle-bin", controller.recycleBin);
 router.delete("/recycle-bin/deleted/:id", controller.deletedInRecycleBin);
 router.patch("/recycle-bin/restore/:id", controller.restoreItem);
 router.get("/create", controller.create);
-router.post("/create", upload.single("thumbnail"), controller.createPOST);
+router.post(
+  "/create",
+  upload.single("thumbnail"),
+  validate.createPOST,
+  controller.createPOST
+);
 
 module.exports = router;

@@ -265,4 +265,27 @@ section.body .main .products-list table tbody td.action .remove {
 }
 #form-create-product .status p {
   display: block;
+}
+
+.btn-delele-upload-img {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 49px;
+  right: 12px;
+  background-color: red;
+  color: white;
+}
+
+.d-block {
+  display: block;
+}
+
+.p-relative {
+  position: relative;
+}
+.p-relative .preview-img {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
 }/*# sourceMappingURL=styleadmin.css.map */
