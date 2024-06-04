@@ -60,7 +60,7 @@ block main
                                     //- else if (product.status == "inactive")
                                     //-     a(class="inactive" href="javascript:;" data-status=product.status data-id=product.id button-change-status)  Hoạt động
                                 td.action 
-                                    button.edit Sửa
+                                    a(href=`/admin/products/edit/${product.id}` class="edit") Sửa
                                     button(class = "remove" data-id=product.id button-remove) Xóa
                     else 
                         .not-found Không tìm thấy sản phẩm !!!

@@ -185,7 +185,8 @@ section.body .main .products-list table tbody td.status .active {
 section.body .main .products-list table tbody td.status .inactive {
   background-color: #eb2f06;
 }
-section.body .main .products-list table tbody td.action button {
+section.body .main .products-list table tbody td.action button,
+section.body .main .products-list table tbody td.action a.edit {
   padding: 8px 20px;
   outline: none;
   border: none;
@@ -193,7 +194,7 @@ section.body .main .products-list table tbody td.action button {
   border-radius: 10px;
   cursor: pointer;
 }
-section.body .main .products-list table tbody td.action .edit {
+section.body .main .products-list table tbody td.action a.edit {
   background-color: #f9ca24;
   margin-right: 5px;
 }
@@ -237,33 +238,40 @@ section.body .main .products-list table tbody td.action .remove {
   color: #bdc3c7;
 }
 
-#form-create-product {
+#form-create-product,
+#form-edit-product {
   width: 500px;
   margin: 0 auto;
 }
-#form-create-product .input-group {
+#form-create-product .input-group,
+#form-edit-product .input-group {
   display: flex;
   flex-direction: column;
 }
-#form-create-product .input-group label {
+#form-create-product .input-group label,
+#form-edit-product .input-group label {
   padding: 10px 0;
 }
-#form-create-product .input-group input {
+#form-create-product .input-group input,
+#form-edit-product .input-group input {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 8px 12px;
 }
-#form-create-product button {
+#form-create-product button,
+#form-edit-product button {
   padding: 8px 12px;
   border-radius: 5px;
   background-color: #4e73df;
   color: white;
 }
-#form-create-product .status {
+#form-create-product .status,
+#form-edit-product .status {
   display: flex;
   flex-direction: row;
 }
-#form-create-product .status p {
+#form-create-product .status p,
+#form-edit-product .status p {
   display: block;
 }
 

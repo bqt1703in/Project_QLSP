@@ -21,5 +21,12 @@ router.post(
   validate.createPOST,
   controller.createPOST
 );
+router.get("/edit/:id", controller.edit);
+router.patch(
+  "/edit/:id",
+  upload.single("thumbnail"),
+  validate.createPOST,
+  controller.editPATCH
+);
 
 module.exports = router;

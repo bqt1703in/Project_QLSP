@@ -200,7 +200,8 @@ section.body {
           }
 
           td.action {
-            button {
+            button,
+            a.edit {
               padding: 8px 20px;
               outline: none;
               border: none;
@@ -208,7 +209,7 @@ section.body {
               border-radius: 10px;
               cursor: pointer;
             }
-            .edit {
+            a.edit {
               background-color: #f9ca24;
               margin-right: 5px;
             }
@@ -263,7 +264,8 @@ section.body {
   }
 }
 
-#form-create-product {
+#form-create-product,
+#form-edit-product {
   width: 500px;
   margin: 0 auto;
   .input-group {

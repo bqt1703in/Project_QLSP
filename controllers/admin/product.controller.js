@@ -136,7 +136,9 @@ module.exports.restoreItem = async (req, res) => {
 
 // [GET] /admin/products/create
 module.exports.create = async (req, res) => {
-  res.render("admin/pages/product/create.pug");
+  res.render("admin/pages/product/create.pug", {
+    pageTitle: "Tạo mới sản phẩm",
+  });
 };
 
 // [GET] /admin/products/create
@@ -156,4 +158,33 @@ module.exports.createPOST = async (req, res) => {
   const product = new Product(req.body);
   await product.save();
   res.redirect(`${PATH_ADMIN.PATH_ADMIN}/products`);
+};
+module.exports.edit = async (req, res) => {
+  try {
+    const find = {
+      _id: req.params.id,
+    };
+    const product = await Product.findOne(find);
+    res.render("admin/pages/product/edit.pug", {
+      pageTitle: "Chỉnh sửa sản phẩm",
+      product: product,
+    });
+  } catch (error) {
+    res.redirect(`${PATH_ADMIN.PATH_ADMIN}/products`);
+  }
+};
+
+module.exports.editPATCH = async (req, res) => {
+  req.body.position = parseInt(req.body.position);
+  req.body.price = parseInt(req.body.price);
+  req.body.stock = parseInt(req.body.stock);
+  req.body.discountPercentage = parseInt(req.body.discountPercentage);
+  if (req.file) {
+    req.body.thumbnail = `/uploads/${req.file.filename}`;
+  }
+  try {
+    await Product.updateOne({ _id: req.params.id }, req.body);
+  } catch (error) {}
+
+  res.redirect("back");
 };
