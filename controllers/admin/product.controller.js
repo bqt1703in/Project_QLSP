@@ -159,6 +159,8 @@ module.exports.createPOST = async (req, res) => {
   await product.save();
   res.redirect(`${PATH_ADMIN.PATH_ADMIN}/products`);
 };
+
+// [PATCH] /admin/products/edit/:id
 module.exports.edit = async (req, res) => {
   try {
     const find = {
@@ -174,6 +176,7 @@ module.exports.edit = async (req, res) => {
   }
 };
 
+// [PATCH] /admin/products/edit/:id
 module.exports.editPATCH = async (req, res) => {
   req.body.position = parseInt(req.body.position);
   req.body.price = parseInt(req.body.price);
@@ -187,4 +190,17 @@ module.exports.editPATCH = async (req, res) => {
   } catch (error) {}
 
   res.redirect("back");
+};
+// [GET] /admin/products/detail/:id
+module.exports.detail = async (req, res) => {
+  const find = {
+    deleted: false,
+    _id: req.params.id,
+  };
+  const product = await Product.findOne(find);
+
+  res.render("admin/pages/product/detail.pug", {
+    pageTitle: product.title,
+    product: product,
+  });
 };

@@ -1,0 +1,15 @@
+extends ../../layouts/default.pug 
+
+
+block main 
+    h1 CHI TIET SAN PHAM
+    if(product.title)
+        p Ten san pham: #{product.title}
+    if(product.description)
+        p Mo ta: #{product.description}
+    if(product.price)
+        p Gia: #{product.price}
+    if(product.status)
+        p Trang thai: #{product.status}
+
+    a(href=`${PATH_ADMIN}/products/edit/${product._id}`) Chinh sua

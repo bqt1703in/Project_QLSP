@@ -60,8 +60,10 @@ block main
                                     //- else if (product.status == "inactive")
                                     //-     a(class="inactive" href="javascript:;" data-status=product.status data-id=product.id button-change-status)  Hoạt động
                                 td.action 
-                                    a(href=`/admin/products/edit/${product.id}` class="edit") Sửa
+                                    a(target="blank" href=`/admin/products/edit/${product.id}` class="edit") Sửa
                                     button(class = "remove" data-id=product.id button-remove) Xóa
+                                    a(href=`/admin/products/detail/${product.id}` class="edit") Chi tiết
+                              
                     else 
                         .not-found Không tìm thấy sản phẩm !!!
         .pagination
